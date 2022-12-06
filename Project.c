@@ -31,16 +31,16 @@ Node student[N];
 
 void addStudent()
 {
-    printf("How many students you want to add\n");
+    printf("How many students you want to add:");
     int n;
     scanf("%d", &n);
 
-    int p = i + n;
-
+    int p = i + n -1;
+    // printf("\np value is %d \n",p);
     for (i; i <= p; i++) {
-        printf("Enter : Book Name, Book No, Student Name : ");
+        printf("\nEnter : Book Name, Book No, Student Name : ");
         student[i].Slno = i;
-        scanf(" %s %d %d %s ", &student[i].book, &student[i].bookNo, &student[i].student_name);
+        scanf("%s%d%s", &student[i].book, &student[i].bookNo, &student[i].student_name);
         printf("Enter Date-Month-Year (space seperated) : ");
         scanf("%d %d %d", &student[i].doi.date, &student[i].doi.month, &student[i].doi.year);
         // student[i].returned = "NO";        
@@ -55,13 +55,13 @@ void printStudent()
 
     for (k = 1; k < i; k++) {
 
-        printf("    %d |",student[i].Slno);
-        printf("     %d - %d - %d     |",student[i].doi.date,student[i].doi.month,student[i].doi.year);
-        printf("    %d   |",student[i].bookNo); /* 4 digit */
-        printf("  %s   |",student[i].student_name); 
-        printf(" %s  |",student[i].book);
+        printf("    %d |",student[k].Slno);
+        printf("     %d - %d - %d     |",student[k].doi.date,student[k].doi.month,student[k].doi.year);
+        printf("    %d   |",student[k].bookNo); /* 4 digit */
+        printf("  %s   |",student[k].student_name); 
+        printf(" %s  |",student[k].book);
 
-        if (student[i].returned) {
+        if (student[k].returned) {
             printf("YES");
         } else {
             printf("NO");
@@ -75,14 +75,14 @@ void printStudent()
 
 void updateStatus() {
     int n;
-    printf("\n\nNo of Books Status You want to update : ");
-    scanf("%d",n);
+    printf("\n\nNo of Books You want to update : ");
+    scanf("%d",&n);
 
     int search[n];
-    printf("Enter Book Numbers : ");
-    
-    for (j = 0; j < i ; j++ ) {
-        scanf("%d",&search[i]);
+
+    printf("\nEnter Book Numbers : ");    
+    for (j = 0; j < n ; j++ ) {
+        scanf("%d",&search[j]);
     }
 
     // int bookNumber;
@@ -105,7 +105,7 @@ int main()
 {
     while (1)
     {
-        printf("choice : \n1 : Add Students \n2 : Updating Returned status \n3 : Print Students \n4: Exit = ");
+        printf("\n\nchoice : \n1 : Add Students \n2 : Update Returned status \n3 : Print Students \n4: Exit \n==>");
         int choice;
         scanf("%d",&choice);  
 
