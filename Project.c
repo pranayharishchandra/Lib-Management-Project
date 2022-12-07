@@ -29,9 +29,16 @@ typedef struct
 
 Node student[N];
 
+/* 
+=== IDEAL INPUTS ================
+-> 8 char   - book name 
+-> 4 digit  - Book No 
+-> 6 char   - Student Name
+*/
+
 void addStudent()
 {
-    printf("How many students you want to add:");
+    printf("How many students you want to add : ");
     int n;
     scanf("%d", &n);
 
@@ -41,7 +48,7 @@ void addStudent()
         printf("\nEnter : Book Name, Book No, Student Name : ");
         student[i].Slno = i;
         scanf("%s%d%s", &student[i].book, &student[i].bookNo, &student[i].student_name);
-        printf("Enter Date-Month-Year (space seperated) : ");
+        printf("Enter Date-Month-Year (space seperated)  : ");
         scanf("%d %d %d", &student[i].doi.date, &student[i].doi.month, &student[i].doi.year);
         // student[i].returned = "NO";        
         student[i].returned = 0;        
@@ -51,14 +58,14 @@ void addStudent()
 void printStudent()
 {
     int k;
-    printf("Slno | Date of issuing book |  Book No  | Student Name | Book Name | Returned");
+    printf(" Slno |  Date of issuing book |  Book No  | Student Name | Book Name | Returned\n");
 
     for (k = 1; k < i; k++) {
 
         printf("    %d |",student[k].Slno);
         printf("     %d - %d - %d     |",student[k].doi.date,student[k].doi.month,student[k].doi.year);
         printf("    %d   |",student[k].bookNo); /* 4 digit */
-        printf("  %s   |",student[k].student_name); 
+        printf("   %s     |",student[k].student_name); 
         printf(" %s  |",student[k].book);
 
         if (student[k].returned) {
@@ -77,6 +84,7 @@ void updateStatus() {
     int n;
     printf("\n\nNo of Books You want to update : ");
     scanf("%d",&n);
+    printf("\n");
 
     int search[n];
 
@@ -91,8 +99,9 @@ void updateStatus() {
 
     int s = 1;
     int e = i; 
-    for ( s = i - 1 ; s != 0 ; s-- ) {
-        for ( j = 0; j < n; j++) {
+
+    for ( s = e - 1 ; s != 0 ; s-- ) { /* Iterating all Students*/
+        for ( j = 0; j < n; j++) { /* Iterating Over all Book No for each Student*/
             if (student[s].bookNo == search[j]){
                 student[s].returned = 1;
             }
@@ -105,7 +114,8 @@ int main()
 {
     while (1)
     {
-        printf("\n\nchoice : \n1 : Add Students \n2 : Update Returned status \n3 : Print Students \n4: Exit \n==>");
+        printf("\n\nchoice : \n1 : Add Students \n2 : Update Returned status \n3 : Print Students \n4 : Exit \n==> ");
+        printf("\n");
         int choice;
         scanf("%d",&choice);  
 
@@ -130,3 +140,33 @@ int main()
     }
     return 0;    
 }
+
+/*
+CONSTIBUTORS :- 
+YASH (GITHUB - Rhapsody360)
+SUMITH (GITHUB - sumith0567)
+PRANAY (GITHUB - pranayharishchandra)
+*/
+
+/*
+======= YOU CAN USE FOLLOWING TEST CASES =======
+
+HC_Verma 1111 Yash_s
+20 9 2022
+
+RS_Agrwl 2222 DhruvA
+29 3 2022
+
+JAVA_Ank 4444 Sumith
+15 6 2022
+
+C++_Saam 3333 Pranay
+31 5 2022
+
+Flunt__C 5555 Pawan_
+26 2 2022
+
+Data_Str 6666 Joseph
+15 3 2022
+
+*/
