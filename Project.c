@@ -107,7 +107,8 @@ void updateStatus() {
             }
         }
     }
-}
+    printf("\nDATA BASE SUCCESSFULLY UPDATED\n");
+    }
 
 
 int main()
@@ -115,7 +116,6 @@ int main()
     while (1)
     {
         printf("\n\nchoice : \n1 : Add Students \n2 : Update Returned status \n3 : Print Students \n4 : Exit \n==> ");
-        printf("\n");
         int choice;
         scanf("%d",&choice);  
 
